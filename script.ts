@@ -20,6 +20,7 @@ console.log(isNew)
 const garage: boolean = true
 console.log(garage)
 
+console.log('********************')
 /*---------------------------------------------------------
 -----------------------------------------------------------*/
 //8. Procvičování objektů - dům v realitní kanceláři jako objekt
@@ -42,6 +43,7 @@ console.log(house.height)
 console.log(house.isNew)
 console.log(house.garage)
 
+console.log('********************')
 /*---------------------------------------------------------
 -----------------------------------------------------------*/
 //10. Procvičování - pole klientů v realitní kanceláři
@@ -73,6 +75,7 @@ function logClients(arrayClients: string[]) {
 logClients(house2.vipClients)
 logClients(house2.clients)
 
+console.log('********************')
 /*---------------------------------------------------------
 -----------------------------------------------------------*/
 // 12. Procvičování - Tuple v realitní kanceláři
@@ -102,6 +105,7 @@ for (const houseLocation of house3.location) {
     console.log(houseLocation)
 }
 
+console.log('********************')
 /*---------------------------------------------------------
 -----------------------------------------------------------*/
 // 14. Procvičování enum - stav domu v realitní kanceláři 
@@ -129,6 +133,7 @@ const house4 = {
 
 console.log(house4.condition)
 
+console.log('********************')
 /*---------------------------------------------------------
 -----------------------------------------------------------*/
 // 20. Procvičování funkcí a výpisu
@@ -150,6 +155,8 @@ function renderSentence(myObject: { windows: number, doors: number, color: strin
 }
 
 renderSentence(house5)
+
+console.log('********************')
 /*---------------------------------------------------------
 -----------------------------------------------------------*/
 // 22. TypeScript - Procvičování funkce jako typ
@@ -192,3 +199,38 @@ myFunction3 = test3
 
 /*---------------------------------------------------------
 -----------------------------------------------------------*/
+// 42. Objektově orientované programování (OOP) - Procvičování class, objekty, constructor
+/* Vytvořte obecný předpis (class) s názvem House. Bude mít vlastnosti street, number, floors. Tyto vlastnosti se budou zadávat již při vytvoření (constructor)
+Vytvořte 3 libovolné objekty podle classy a uložte do proměnných. Následně vypište všechny tři ulice, všechna tři čísla a všechna tři podlaží do konzole.*/
+
+class House {
+    street: string
+    number: number
+    floors: number
+
+    constructor(street: string, number: number, floors: number) {
+        this.street = street
+        this.number = number
+        this.floors = floors
+    }
+}
+
+const firstHouse = new House('Andělova', 33, 5)
+const secondHouse = new House('Barákova', 551, 8)
+const thirdHouse = new House('Davelská', 78, 2)
+
+function renderHouse(house: { street: string; number: number; floors: number }) {
+    console.log('House:')
+    for (const property in house) {
+        console.log(`${property}: ${house[property]}`);
+    }
+}
+
+renderHouse(firstHouse)
+renderHouse(secondHouse)
+renderHouse(thirdHouse)
+
+console.log('********************')
+/*---------------------------------------------------------
+-----------------------------------------------------------*/
+

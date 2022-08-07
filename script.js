@@ -17,6 +17,7 @@ var isNew = true;
 console.log(isNew);
 var garage = true;
 console.log(garage);
+console.log('********************');
 /*---------------------------------------------------------
 -----------------------------------------------------------*/
 //8. Procvičování objektů - dům v realitní kanceláři jako objekt
@@ -36,6 +37,7 @@ console.log(house.color);
 console.log(house.height);
 console.log(house.isNew);
 console.log(house.garage);
+console.log('********************');
 /*---------------------------------------------------------
 -----------------------------------------------------------*/
 //10. Procvičování - pole klientů v realitní kanceláři
@@ -63,6 +65,7 @@ function logClients(arrayClients) {
 }
 logClients(house2.vipClients);
 logClients(house2.clients);
+console.log('********************');
 /*---------------------------------------------------------
 -----------------------------------------------------------*/
 // 12. Procvičování - Tuple v realitní kanceláři
@@ -82,6 +85,7 @@ for (var _i = 0, _a = house3.location; _i < _a.length; _i++) {
     var houseLocation = _a[_i];
     console.log(houseLocation);
 }
+console.log('********************');
 /*---------------------------------------------------------
 -----------------------------------------------------------*/
 // 14. Procvičování enum - stav domu v realitní kanceláři 
@@ -110,6 +114,7 @@ var house4 = {
     condition: House_condition.UNINHABITABLE
 };
 console.log(house4.condition);
+console.log('********************');
 /*---------------------------------------------------------
 -----------------------------------------------------------*/
 // 20. Procvičování funkcí a výpisu
@@ -128,6 +133,7 @@ function renderSentence(myObject) {
     console.log("Tento d\u016Fm m\u00E1 ".concat(myObject.windows, " okna, po\u010Det dve\u0159\u00ED je ").concat(myObject.doors, ", barva domu je ").concat(myObject.color, ", v\u00FD\u0161ka domu je ").concat(myObject.height, " metr\u016F. "));
 }
 renderSentence(house5);
+console.log('********************');
 /*---------------------------------------------------------
 -----------------------------------------------------------*/
 // 22. TypeScript - Procvičování funkce jako typ
@@ -155,4 +161,30 @@ function test3(myString, myNumber) {
 var myFunction3;
 myFunction3 = test3;
 /*---------------------------------------------------------
------------------------------------------------------------*/ 
+-----------------------------------------------------------*/
+// 42. Objektově orientované programování (OOP) - Procvičování class, objekty, constructor
+/* Vytvořte obecný předpis (class) s názvem House. Bude mít vlastnosti street, number, floors. Tyto vlastnosti se budou zadávat již při vytvoření (constructor)
+Vytvořte 3 libovolné objekty podle classy a uložte do proměnných. Následně vypište všechny tři ulice, všechna tři čísla a všechna tři podlaží do konzole.*/
+var House = /** @class */ (function () {
+    function House(street, number, floors) {
+        this.street = street;
+        this.number = number;
+        this.floors = floors;
+    }
+    return House;
+}());
+var firstHouse = new House('Andělova', 33, 5);
+var secondHouse = new House('Barákova', 551, 8);
+var thirdHouse = new House('Davelská', 78, 2);
+function renderHouse(house) {
+    console.log('House:');
+    for (var property in house) {
+        console.log("".concat(property, ": ").concat(house[property]));
+    }
+}
+renderHouse(firstHouse);
+renderHouse(secondHouse);
+renderHouse(thirdHouse);
+console.log('********************');
+/*---------------------------------------------------------
+-----------------------------------------------------------*/
