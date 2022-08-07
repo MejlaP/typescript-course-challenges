@@ -219,7 +219,7 @@ const firstHouse = new House('Andělova', 33, 5)
 const secondHouse = new House('Barákova', 551, 8)
 const thirdHouse = new House('Davelská', 78, 2)
 
-function renderHouse(house: { street: string; number: number; floors: number }) {
+const renderHouse = (house: { street: string; number: number; floors: number }) => {
     console.log('House:')
     for (const property in house) {
         console.log(`${property}: ${house[property]}`);
@@ -233,4 +233,44 @@ renderHouse(thirdHouse)
 console.log('********************')
 /*---------------------------------------------------------
 -----------------------------------------------------------*/
+// 44. Objektově orientované programování (OOP) - procvičování metod
+/* Vytvořte class House, který bude mít vlastnosti street, number, floors, state (state = stav, který bude nový nebo starý). Vytvořte se všemi vlastnosti constructor.
+Do classy přidejte metodu describe, která bude vypisovat např. takovýto text: "Jedná se o nový dům. Nachází se v ulici Modrá 26. Má 4 podlaží." Části street, number, floors a state budou doplněny pomocí this a budou u výpisu každého objektu (domu) jiné. 
+Podle classy vytvoříte tři objekty, u kterých zavoláte metodu describe a vypíšete tři texty do konzole. */
+
+class House2 {
+    street: string
+    number: number
+    floors: number
+    state: 'nový' | 'starý'
+
+    constructor(street: string, number: number, floors: number, state: 'nový' | 'starý') {
+        this.street = street
+        this.number = number
+        this.floors = floors
+        this.state = state
+    }
+
+    describe(): void {
+        console.log(`Jedná se o ${this.state} dům. Nachází se v ulici ${this.street} ${this.number}. Má ${this.floors} podlaží.`)
+    }
+}
+
+const dobevskaHouse2 = new House2('Dobevská', 56, 4, 'nový')
+const dolnobrezanskaHouse2 = new House2('Dolnobřežanská', 546, 9, 'starý')
+const dostalovaHouse2 = new House2('Dostálova', 451, 2, 'nový')
+
+const renderMyHouse = (house: { street: string, number: number, floors: number, state: 'nový' | 'starý', describe(): void }) => {
+    house.describe()
+}
+
+renderMyHouse(dobevskaHouse2)
+renderMyHouse(dolnobrezanskaHouse2)
+renderMyHouse(dostalovaHouse2)
+
+console.log('********************')
+/*---------------------------------------------------------
+-----------------------------------------------------------*/
+
+
 

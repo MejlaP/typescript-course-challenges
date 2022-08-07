@@ -176,15 +176,43 @@ var House = /** @class */ (function () {
 var firstHouse = new House('Andělova', 33, 5);
 var secondHouse = new House('Barákova', 551, 8);
 var thirdHouse = new House('Davelská', 78, 2);
-function renderHouse(house) {
+var renderHouse = function (house) {
     console.log('House:');
     for (var property in house) {
         console.log("".concat(property, ": ").concat(house[property]));
     }
-}
+};
 renderHouse(firstHouse);
 renderHouse(secondHouse);
 renderHouse(thirdHouse);
+console.log('********************');
+/*---------------------------------------------------------
+-----------------------------------------------------------*/
+// 44. Objektově orientované programování (OOP) - procvičování metod
+/* Vytvořte class House, který bude mít vlastnosti street, number, floors, state (state = stav, který bude nový nebo starý). Vytvořte se všemi vlastnosti constructor.
+Do classy přidejte metodu describe, která bude vypisovat např. takovýto text: "Jedná se o nový dům. Nachází se v ulici Modrá 26. Má 4 podlaží." Části street, number, floors a state budou doplněny pomocí this a budou u výpisu každého objektu (domu) jiné.
+Podle classy vytvoříte tři objekty, u kterých zavoláte metodu describe a vypíšete tři texty do konzole. */
+var House2 = /** @class */ (function () {
+    function House2(street, number, floors, state) {
+        this.street = street;
+        this.number = number;
+        this.floors = floors;
+        this.state = state;
+    }
+    House2.prototype.describe = function () {
+        console.log("Jedn\u00E1 se o ".concat(this.state, " d\u016Fm. Nach\u00E1z\u00ED se v ulici ").concat(this.street, " ").concat(this.number, ". M\u00E1 ").concat(this.floors, " podla\u017E\u00ED."));
+    };
+    return House2;
+}());
+var dobevskaHouse2 = new House2('Dobevská', 56, 4, 'nový');
+var dolnobrezanskaHouse2 = new House2('Dolnobřežanská', 546, 9, 'starý');
+var dostalovaHouse2 = new House2('Dostálova', 451, 2, 'nový');
+var renderMyHouse = function (house) {
+    house.describe();
+};
+renderMyHouse(dobevskaHouse2);
+renderMyHouse(dolnobrezanskaHouse2);
+renderMyHouse(dostalovaHouse2);
 console.log('********************');
 /*---------------------------------------------------------
 -----------------------------------------------------------*/
